@@ -93,8 +93,7 @@ app.get('/:id', function(req, res) {
 		    	//var field = "_id";
 				//var query = {};
 				//query[field] = input;
- 
-        console.log(query);
+ 		        //console.log(query);
 		    	urlCollection.findOne( {_id: input}, {"_id": 0, "original_url": 1}, function(error, doc){
 		    		if (err){res.send("Error:" + error)}
 		    		if (doc){	
