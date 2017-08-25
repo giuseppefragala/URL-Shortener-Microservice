@@ -11,15 +11,15 @@ app.get('/', function(req, res) {
 });
 
 
-app.get('/:id', function(req, res) {
+app.get('/:id*', function(req, res) {
 	var input;
 	var original_url;
 	var short_url;
-
+	var rnd_short = Math.random() * (9999 -1001)/1001;
 
 	input = req.params.id;
 	original_url = "https://natural.com";
-	short_url = "https://short.com";
+	short_url = "https://short.com/" + rnd_short;
 
 	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
   	res.render('index', { title: 'FCC URL Shortener', head: "OUTPUT", message: output });
