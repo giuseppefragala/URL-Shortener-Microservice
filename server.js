@@ -13,29 +13,15 @@ app.get('/', function(req, res) {
 
 app.get('/:id', function(req, res) {
 	var input;
-	var unix_output;
-	var natural_output;
-	var date_natural;
-	var date_unix;	
+	var original_url;
+	var short_url;
 
 
 	input = req.params.id;
-	date_unix = moment(input, 'X', true).isValid();
+	original_url = "https://natural.com";
+	short_url = "https://short.com";
 
-	if(moment(input).isValid()){
-		natural_output = input;
-		unix_output = moment(input).unix();
-	}
-	else if(date_unix){
-		natural_output = moment.unix(input).format('YYYY-MMM-DD');;
-		unix_output = input;
-	}
-	else {
-		natural_output = "null";
-		unix_output = "null"
-	};	
-
-	var output = '{ "unix": ' + unix_output + ', "natural": ' + '"' + natural_output + '" }';
+	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
   	res.render('index', { title: 'OUTPUT', head: "OUTPUT", message: output });
 
     //res.send(output);
