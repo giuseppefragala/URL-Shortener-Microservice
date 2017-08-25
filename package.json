@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/giuseppefragala/URL-shortener-microservice/issues"
   },
-  "homepage": "https://github.com/giuseppefragala/URL-shortener-microservice#readme"
+  "homepage": "https://github.com/giuseppefragala/URL-shortener-microservice#readme",
+  "dependencies": {
+    "jade": "^1.11.0"
+  }
 }
