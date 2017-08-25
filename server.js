@@ -22,7 +22,7 @@ app.get('/:id', function(req, res) {
 	short_url = "https://short.com";
 
 	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
-  	res.render('index', { title: 'OUTPUT', head: "OUTPUT", message: output });
+  	res.render('index', { title: 'FCC URL Shortener', head: "OUTPUT", message: output });
 
     //res.send(output);
 });
