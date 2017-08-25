@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var jade = require('jade');
+var validUrl = require('valid-url');
 
 //-------------------------------------------------------------------------------------
 //lets require/import the mongodb native drivers.
@@ -37,11 +38,12 @@ app.get('/new/:id*', function(req, res) {
 
 	input = req.params.id;
 	original_url = req.param('id') + req.param(0);
+
+	if(validUrl.isUri(original_url)){
  	rnd_short= 1000 + Math.floor(Math.random() * (9999 -1001) + 1);
 	short_url = "https://freecodecamp-url-shortener-microservice.glitch.me/" + rnd_short;
 
-	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
-  	res.render('index', { title: 'FCC URL Shortener', message: output });
+
 
 	//---------------------------------------------------------------------------------------
 	// Use connect method to connect to the Server
@@ -53,7 +55,6 @@ app.get('/new/:id*', function(req, res) {
 
 	    // do some work here with the database.
 	    	var urlCollection = db.collection('urlCollection');
-	    	console.log("Scrivo un record");
 	    	urlCollection.insert({ _id: rnd_short, "original_url" : original_url, "short_url" : short_url});
 	    //Close connection
 	    db.close();
@@ -61,7 +62,9 @@ app.get('/new/:id*', function(req, res) {
 	});
 	//--------------------------------------------------------------------------------------
 
-    //res.send(output);
+	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
+  	res.render('index', { title: 'FCC URL Shortener', message: output });
+  }else{res.send('{"Error:"' + '"' + original_url + '" is not a valid URL"}');}
 });
 
 

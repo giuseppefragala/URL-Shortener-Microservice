@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^4.15.4",
     "jade": "^1.11.0",
-    "mongodb": "^2.2.31"
+    "mongodb": "^2.2.31",
+    "valid-url": "^1.0.9"
   }
 }
