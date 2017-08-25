@@ -41,7 +41,7 @@ app.get('/new/:id*', function(req, res) {
 	short_url = "https://freecodecamp-url-shortener-microservice.glitch.me/" + rnd_short;
 
 	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
-  	res.render('index', { title: 'FCC URL Shortener', head: "OUTPUT", message: output });
+  	res.render('index', { title: 'FCC URL Shortener', message: output });
 
 	//---------------------------------------------------------------------------------------
 	// Use connect method to connect to the Server
