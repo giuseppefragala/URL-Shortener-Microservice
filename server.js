@@ -61,8 +61,8 @@ app.get('/new/:id*', function(req, res) {
 	    	urlCollection.insert({ _id: rnd_short, "original_url" : original_url, "short_url" : short_url});
 	      
       	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
-  	    res.render('index', { title: 'FCC URL Shortener', message: output });
-      
+  	    //res.render('index', { title: 'FCC URL Shortener', message: output });
+      	res.render(JSON.stringify({ uno: 1, dos: 2 }, null, '\t'));
       //Close connection
 	    db.close();
 	  }
