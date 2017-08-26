@@ -50,7 +50,7 @@ app.get('/new/:id*', function(req, res) {
 		    var urlCollection = db.collection('urlCollection');
 		    urlCollection.insert({ _id: rnd_short, "original_url" : original_url, "short_url" : short_url});
 		      
-	      	var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
+	      	var output = '{ "original_url":' + '"' + original_url + '"' + ', "short_url":' + '"' + short_url + '" }';
 	  	    res.render('index', { title: 'FCC URL Shortener', message: output });
 
 	      	//Close connection
@@ -59,7 +59,7 @@ app.get('/new/:id*', function(req, res) {
 		});
 		//--------------------------------------------------------------------------------------
 
-		//var output = '{ "original_url": ' + '"' + original_url + '"' + ', "short_url": ' + '"' + short_url + '" }';
+		//var output = '{ "original_url":' + '"' + original_url + '"' + ', "short_url":' + '"' + short_url + '" }';
 	  	//res.render('index', { title: 'FCC URL Shortener', message: output });
   	}else{res.send('{"Error:"' + '"' + original_url + '" is not a valid URL"}');}
 });
