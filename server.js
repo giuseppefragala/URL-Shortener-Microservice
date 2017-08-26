@@ -32,8 +32,8 @@ app.get('/new/:id*', function(req, res) {
 	input = req.params.id;
 	original_url = req.param('id') + req.param(0);
 
-  	webStr1 = "http://www.";
-	webStr2 = "https://www."; //it seams validUrl passes string like "http://ww."
+  	var webStr1 = "http://www.";
+	var webStr2 = "https://www."; //it seams validUrl passes string like "http://ww."
 	
 	if(validUrl.isWebUri(original_url) && (original_url.includes(webStr1) || original_url.includes(webStr2) ) ){
  		rnd_short= 1000 + Math.floor(Math.random() * (9999 -1001) + 1);
