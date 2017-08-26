@@ -42,7 +42,7 @@ app.get('/new/:id*', function(req, res) {
   	webStr1 = "http://www.";
 	webStr2 = "https://www."; //it seams validUrl pass string like "http://ww."
 	
-	if(validUrl.isWebUri(original_url) && (original_url.contains(webStr1) || original_url.contains(webStr1) ) ){
+	if(validUrl.isWebUri(original_url) && (original_url.includes(webStr1) || original_url.includes(webStr1) ) ){
  	rnd_short= 1000 + Math.floor(Math.random() * (9999 -1001) + 1);
 	short_url = "https://freecodecamp-url-shortener-microservice.glitch.me/" + rnd_short;
 
